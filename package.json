@@ -1,0 +1,28 @@
+{
+  "name": "nodejs_blog",
+  "version": "1.0.0",
+  "description": "this is node tutorial.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect ./src/index.js localhost 3000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quyle92/nodejs_blog.git"
+  },
+  "author": "quyle@92",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quyle92/nodejs_blog/issues"
+  },
+  "homepage": "https://github.com/quyle92/nodejs_blog#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-handlebars": "^6.0.2"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15"
+  }
+}
