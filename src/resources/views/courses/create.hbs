@@ -1,0 +1,27 @@
+{{#if_eq message.success message.success}}
+    <div class="alert alert-success" role="alert">
+        {{message.success}}
+    </div>
+    {{else if_eq message.error message.error}}
+    <div class="alert alert-danger" role="alert">
+        {{message.error}}
+    </div>
+{{/if_eq}}
+
+<form action="store" method="post">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea type="text" class="form-control" name="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" class="form-control" name="image">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{message.error}}
