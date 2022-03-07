@@ -1,0 +1,45 @@
+<div class="mt-4">
+    <h3>My courses</h3>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Created at</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#if_eq message.success message.success}}
+        <div class="alert alert-success" role="alert">
+            {{message.success}}
+        </div>
+        {{else if_eq message.error message.error}}
+        <div class="alert alert-danger" role="alert">
+            {{message.error}}
+        </div>
+        {{/if_eq}}
+
+            {{#each courses}}
+            <tr>
+                <th scope="row">{{serialNo}}</th>
+                <td>{{name}}</td>
+                <td>{{description}}</td>
+                <td><img src="{{image}}" alt="" width="50" height="50"></td>
+                <td>{{createdAt}}</td>
+                <td>
+                    <button type="button" class="btn btn-sm btn-primary"><a href="/courses/{{_id}}/restore?_method=PATCH" class=" text-white">Restore</a></button>
+                    <button type="button" class="btn btn-sm btn-danger"><a href="/courses/{{_id}}?_method=DELETE" class="text-white" onclick="return confirm('sure?')">Delete</a></button>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="6" class="text-center">No content</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

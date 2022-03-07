@@ -33,6 +33,23 @@ app.use(session({
 }));
 app.use(flash());
 
+// override with POST having ?_method=DELETE
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'));
+app.use(function (req, res, next) {
+    // this middleware will call for each requested
+    // and we checked for the requested query properties
+    // if _method was existed
+    // then we know, clients need to call DELETE request instead
+    // Ref: https://stackoverflow.com/a/34929022/11297747
+
+    if (Object.keys(req.query).length > 0) {
+        req.method = req.query._method;
+        // and set requested url to /user/12
+        req.url = req.path;
+    }
+    next();
+});
 
 //template engine
 app.engine(
